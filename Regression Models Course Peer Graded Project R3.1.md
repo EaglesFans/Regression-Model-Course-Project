@@ -12,7 +12,7 @@ output:
 *Motor Trend* is interested in exploring the relationship between a set of variables and MPG. We will deep dive into the data set to answer the given two questions. Through the exploratory data analysis, I find out the meaningful two variables (type of transmission and number of cylinders) for the analysis. I use a linear regression model with two categorical variables. Even though the sample size in the data set is small, I can conclude that the vehicles with manual transmission are better for mpg than the ones with automatic transmission.
 
 ### 2. Exploratory Data Analysis (EDA)
-```{r load the dataset, echo = FALSE}
+```{r load the dataset, echo = TRUE}
 data("mtcars")
 ```
 
