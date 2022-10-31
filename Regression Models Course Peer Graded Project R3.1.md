@@ -24,7 +24,7 @@ qsec (1/4 mile time, 0.41868403) and gear (Number of forward gears, 0.4802848) a
 According to the MPG table per type of transmission and the barplot on Appendix 2, it is obvious that manual transmission is better MPG than automatic transmission. The mean MPG for manual transmission is 24.4 while one for automatic transmission is 17.1.
 
 ### 4. Regression Models and coefficient interpretation
-```{r regression models, echo = FALSE}
+```{r regression models, echo = TRUE}
 fit1 <- lm(mpg ~ factor(am) - 1, mtcars)
 fit2 <- lm(mpg ~ factor(am) + factor(cyl) - 1, mtcars)
 fit3 <- lm(mpg ~ factor(am) + factor(cyl) + disp - 1, mtcars)
@@ -56,7 +56,6 @@ The relevant plots can be found on Appendix 4.
 ### 7. Conclusion
 Based on our analysis, we can conclude that the vehicles with manual transmission have better MPG than ones with automatic. Considering only type of transmission, manual vehicles can go 7.3 miles further in average. However, if we take into account the number of engine cylinder, the linear regression model indicates that the vehicles with manual transmission can go 2.56 miles further than ones with automatic transmission per gallon.
 
-\newpage
 ### Appendix 
 
 #### Appendix 1. Correlation Table: mpg vs. other variables
@@ -66,7 +65,7 @@ cor(mtcars)[1, ]
 
 #### Appendix 2. Automatic transmission vs. manual transmission for MPG
 
-```{r insalling Dplyr, echo = TRUE, message = FALSE}
+```{r insalling Dplyr, echo = TRUE, message = TRUE}
 library(dplyr)
 ```
 
@@ -74,14 +73,13 @@ library(dplyr)
 mtcars %>% group_by(am) %>% summarize(mpg = mean(mpg))
 ```
 
-```{r barplot, echo = FALSE, fig.width = 5,fig.height = 3}
+```{r barplot, echo = TRUE, fig.width = 5,fig.height = 3}
 library(ggplot2)
 bar_plot <- ggplot(mtcars, aes(x = factor(am), y = mpg, fill = factor(am)))
 bar_plot <- bar_plot + geom_boxplot() + labs(x = "Type of Transmission", y = "MPG", title = "Type of Transmission vs. MPG") + scale_x_discrete(labels=c("0" = "Automatic", "1" = "Manual"))
 bar_plot
 ```
 
-\newpage
 #### Appendix 3. Parallel line model plot
 
 ```{r parallel plot, echo = FALSE, fig.width = 5,fig.height = 3}
